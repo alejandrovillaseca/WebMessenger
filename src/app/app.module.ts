@@ -9,6 +9,8 @@ import { ConversationComponent } from './conversation/conversation.component';
 import { ProfileComponent } from './profile/profile.component';
 import { Routes, RouterModule } from '@angular/router';
 import { MenuComponent } from './menu/menu.component';
+import { SearchPipe } from './pipes/search';
+import { FormsModule } from '@angular/forms';
 
 const appRoutes : Routes  = [
   {path: '', component: HomeComponent},
@@ -24,12 +26,14 @@ const appRoutes : Routes  = [
     HomeComponent,
     ConversationComponent,
     ProfileComponent,
-    MenuComponent
+    MenuComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(appRoutes) //hace que la aplicación contenga RouterModule con los appRoutes definidas
+    RouterModule.forRoot(appRoutes), //hace que la aplicación contenga RouterModule con los appRoutes definidas
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
