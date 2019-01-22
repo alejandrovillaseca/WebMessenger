@@ -1,13 +1,48 @@
-<input type="text" placeholder="Buscar Amigo" [(ngModel)]="query" />
-<br />
-<b>Amigos</b>
-<ng-container *ngFor="let user of friends; let i = index">
-  <div *ngIf="user.friend">
-    <a routerLink="/conversation/{{user.uid}}">
-      {{i+1}}: {{user.nick}} - {{user.email}}
-    </a>
+<div id="homeContainer">
+  <div id="whiteBorderGlassBox">
+    <div class="homeHeadContainer">
+      <div class="row">
+        <div class="col-md-auto">
+          <div class="avatarFrameOnline">
+              <img id="homeAvatarPicture" src="assets/img/generic_avatar.png" alt="Avatar">
+          </div>
+        </div>
+        <div class="col-md-auto">
+          <b>Alejandro</b>
+          <div>
+            <span>
+              Online
+            </span>
+            <br>
+            <span>< Escribe un mensaje personal ></span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</ng-container>
+  <div class="whiteContainerPadded marTop15">
+      <div class="row">
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Buscar Amigo" [(ngModel)]="query" />
+        </div>
+        <div class="col-md-auto">
+          <img src="assets/img/logo_live_add.png" class="icon" alt="">
+        </div>
+      </div>
+      <hr>
+      <b>Amigos {{friends.length}} / {{friends.length}}</b>
+      <div *ngFor="let user of friends | search: query; let i = index" class="displayBlo marTop15">
+        <!--Iconos offline online según status-->
+        <img id="home-online-icon" src="assets/img/logo_live_{{user.status}}.png" alt="{{user.status}}">
+        <span routerLink="/conversation/{{user.uid}}">
+          <b>{{user.nick}}</b> - {{user.subnick || 'No Subnick'}}
+          <small>{{user.email}}</small>
+        </span>
+      </div>
+  </div>
+</div>
+
+
 
 
 

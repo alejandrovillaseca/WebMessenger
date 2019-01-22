@@ -1,3 +1,29 @@
-<p>
-  login works!
-</p>
+<div class="loginContainer">
+  <div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-md-3">
+          <div class="avatarFrameOffline marTop15 marBot15">
+            <img class="avatarImage img-fluid" src="assets/img/generic_avatar.png" alt="Avatar">
+          </div>
+        </div>
+    </div>
+    <div class="row justify-content-md-center">
+      <div class="col-md-6">
+        <div class="center">
+          <h3>Iniciar Sesión</h3>
+        </div>
+        <p>Ya tienes cuenta? has login <a (click)="operation = 'login'">Login</a></p>
+        <p>No tienes cuenta? Regístrate <a (click)="operation = 'register'">Regístrate</a></p>
+        <div class="borderContainer">
+          <input *ngIf="operation == 'login'" class="form-control marBot15" type="email" placeholder="Ingrese su email">
+          <input *ngIf="operation == 'login'" class="form-control marBot15" type="password" placeholder="Ingrese su contraseña">
+          <input *ngIf="operation == 'register'" class="form-control marBot15" type="text" placeholder="Ingrese su nick">
+        </div>
+        <div class="center">
+          <a *ngIf="operation == 'login'" class="btn btn-primary" href="">Iniciar Sesión</a>
+          <a *ngIf="operation == 'register'" class="btn btn-info" href="">Registrarme</a>
+        </div>
+      </div>
+  </div>
+  </div>
+</div>

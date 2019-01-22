@@ -1,1 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
+.center{
+    text-align: center !important;
+}
+.marTop15{
+    margin-top: 15px;
+}
+.marBot15{
+    margin-bottom: 15px;
+}
+.generalContent{
+    margin-top: 56px;
+}
+.displayBlo{
+    display: block;
+}
+.padTop45{
+    padding-top: 45px;
+}
+input[type="file"]{
+    display: none;
+}
+.custom-fill-upload{
+    background: #f2f6f8;
+    background: -moz-linear-gradient(top, #f2f6f8 0%, #d8e1e7 50%, #b5c6d0 51%, #e0eff9 100%);
+    background: -webkit-linear-gradient(top, #f2f6f8 0%, #d8e1e7 50%, #b5c6d0 51%, #e0eff9 100%);
+    background: linear-gradient(to bottom, #f2f6f8 0%, #d8e1e7 50%, #b5c6d0 51%, #e0eff9 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f2f6f8', endColorstr='#e0eff9', GradientType=0);
+    display: inline-block;
+    padding: 6px12px;
+    cursor: pointer;
+    border: 1px solid #8dd2f3;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    border: 1px solid #8dd2f3; 
+}
+.exampleChat {
+	font-family: 'San-serif'
+}
