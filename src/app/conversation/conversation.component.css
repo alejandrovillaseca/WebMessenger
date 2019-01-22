@@ -1,51 +1,16 @@
-.contPrinc{
-	padding: 15px;
-}
-.margin-left{
-	margin-left: 0px;
-}
-.chatContainer{
-	width: 100%;
-	height: 350px;
-}
-.bottomChat{
-	width: 100%;
-	bottom: 0px;
-}
-#conversationContainer{
-  background-image: url("/assets/img/msnbg.jpg");
-  background-size: 100%;
-  background-repeat: no-repeat;
-
-}
-.homeAvatarPicture {
-  max-width: 100px;
-}
-.marto100 {
-	margin-top: 100px;
-}
-.marle-25{
-	margin-left: 25px;
-}
-.marto250{
-  margin-top: 250px;
-}
-.areaChat{
-	height:100px;
-}
-
-.exampleChat {
-	font-family: 'San-serif'
-}
-
-.iconImage{
-	width: 30px;
-	margin-right: 10px;
-}
-
-img .logoPers {
-	width: 65px;
-}
-.icon{
-	margin-right:  10px;
-}
+#conversationContainer {
+    background-image: url(/assets/img/msnbg.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+  img.avatarImage{
+    height: 100px;
+    width: 100px;
+  }
+  .icon-chat{
+    height: 40px;
+    width: 40px;
+  }
+  #homeAvatarPicture{
+      width: 50px;
+  }

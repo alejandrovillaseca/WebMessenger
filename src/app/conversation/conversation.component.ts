@@ -20,10 +20,20 @@ export class ConversationComponent implements OnInit {
     private userService: UserService) { 
 
     this.friendId = activatedRoute.snapshot.params["uid"]; //Consigo el parametro por URL
-    this.friends = userService.getFriends()
+    /*this.friends = userService.getFriends()
     this.friend = this.friends.find(x => {
       return x.uid == this.friendId
-    })
+    })*/
+    this.userService.getUserById(this.friendId).valueChanges()
+    .subscribe(
+      (data : User) => {
+        this.friend = data
+        console.log(data)
+      }, (error) => {
+        console.log(error)
+      }
+    )
+
     console.log(this.friend)
   }
 

@@ -11,13 +11,20 @@ import { Routes, RouterModule } from '@angular/router';
 import { MenuComponent } from './menu/menu.component';
 import { SearchPipe } from './pipes/search';
 import { FormsModule } from '@angular/forms';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { environment } from '../environments/environment';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AuthenticationGuard } from './services/authentication.guard';
 
 const appRoutes : Routes  = [
   {path: '', component: HomeComponent},
-  {path:'home', component: HomeComponent},
+  {path:'home', component: HomeComponent, canActivate: [AuthenticationGuard]},
   {path:'login',component: LoginComponent},
-  {path: 'conversation/:uid', component: ConversationComponent},
-  {path: 'profile', component: ProfileComponent}
+  {path: 'conversation/:uid', component: ConversationComponent, canActivate: [AuthenticationGuard]},
+  {path: 'profile', component: ProfileComponent, canActivate: [AuthenticationGuard]}
 ];
 @NgModule({
   declarations: [
@@ -33,7 +40,12 @@ const appRoutes : Routes  = [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(appRoutes), //hace que la aplicación contenga RouterModule con los appRoutes definidas
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+    AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
+    AngularFireStorageModule, // imports firebase/storage only needed for storage features
+    AngularFireDatabaseModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

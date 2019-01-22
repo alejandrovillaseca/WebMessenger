@@ -1,50 +1,81 @@
 <div id="conversationContainer">
-	<div class="padTop45">
-		<div class="row">
-			<div class="col-xs-3 bg-grey marle-25">
-				<div class="avatarFrameOnLine ">
-					<img src="assets/img/generic_avatar.png"class=" homeAvatarPicture img-fluid">
-				</div>
-
-				<div class="avatarFrameOnLine  marto250">
-					<img src="assets/img/generic_avatar.png"class=" homeAvatarPicture img-fluid">
-				</div>
-
-			</div>
-			<div class="col">
-				<span><b>Persona (Online)</b></span>
-				<div class="container">
-					<div class="chatContainer marto15">
-						<div class="exampleChat">
-							<span><b>Persona dice:</b></span>
-							<p class="marle-25">Hola, ¿como estas?</p>
-						</div>
-						<div class="exampleChat">
-							<span><b>Persona2 dice:</b></span>
-							<p class="marle-25">Bien, aquí esforzandome por diseñar el chat :C <br> ¿y tu?</p>
-						</div>
-						
-
-					</div>
-					<div class="bottomChat">
-						<input type="area"class="form-control areaChat"placeholder="Escribe un mensaje"name="">
-						
-						<div class="marto15">
-
-							<img src="assets/img/zumbido.png"class="iconImage img-fluid">
-							<img src="assets/img/zumbido.png"class="iconImage img-fluid">
-							<img src="assets/img/zumbido.png"class="iconImage img-fluid">
-							
-							<label class="customFileUpload">
-								<input type="file">
-								<i class="far fa-images"></i>
-								Seleccionar Imagen
-							</label>
-						</div>
-					</div>
-					
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+  <div class="whiteBorderGlassBox">
+      <div class="homeHeadContainer">
+        <div class="row">
+          <div class="col-md-auto">
+            <div class="avatarFrameonline">
+                <img src="assets/img/generic_avatar.png"id="homeAvatarPicture">
+            </div>
+          </div>
+          <div class="col">
+            <h1>Eduardo</h1>
+            <div>
+              <span>Online</span>
+              <br />
+              <span>Escribe un mensaje Personal </span>
+              <hr/>
+            </div>
+            <form >
+              <div class="form-group">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="col">
+                      <i>
+                        <img src="assets/img/generic_avatar.png"alt=""class="icon-chat">
+                      </i>
+                      <span class="badge badge-primary">Hola como estas?</span>
+                    </div>
+                    <div class="col text-right">
+                        <i>
+                          <span class="badge badge-primary">Yo bien y tu?</span>
+                          <img src="assets/img/generic_avatar.png"alt=""class="icon-chat">
+                        </i>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="whiteBorderGlassBox">
+        <div class="homeHeadContainer">
+          <div class="row">
+            <div class="col-md-auto">
+              <div class="avatarFrameonline">
+                  <img src="assets/img/generic_avatar.png"id="homeAvatarPicture">
+              </div>
+            </div>
+            <div class="col">
+              <b>Yo</b>
+              <div>
+                <form >
+                  <div class="form-group">
+                    <textarea class="form-control"id="Area-de-Chat"rows="3"placeholder="Escribe menos de 140 caracteres"></textarea>
+                    <div class="col text-right">
+                      <i class="img mr-1">
+                        <img src="assets/img/icons/regular_smile.gif"alt="">
+                      </i>
+                      <i class="img mr-1">
+                        <img src="assets/img/icons/tongue_smile.gif"alt="">
+                      </i>
+                      <i class="img mr-1">
+                        <img src="assets/img/icons/angry_smile.gif"alt="">
+                      </i>
+                      <button type="button"class="btn btn-primary btn-sm mr-1">
+                        Enviar
+                      </button>
+                      <label class="custom-file-upload mr-1">
+                        <input type="file">
+                        Selecciona Imagen
+                      </label>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
