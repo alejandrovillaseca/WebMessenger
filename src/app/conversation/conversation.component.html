@@ -1,37 +1,73 @@
-<div id="conversationContainer">
+<div id="conversationContainer" [ngClass]="{'shaker': shake}">
   <div class="whiteBorderGlassBox">
-      <div class="homeHeadContainer">
-        <div class="row">
-          <div class="col-md-auto">
-            <div class="avatarFrameonline">
-                <img src="assets/img/generic_avatar.png"id="homeAvatarPicture">
-            </div>
+    <div class="homeHeadContainer">
+      <div class="row">
+        <div class="col-md-auto">
+          <div class="avatarFrameonline">
+            <img src="assets/img/generic_avatar.png" id="homeAvatarPicture">
           </div>
-          <div class="col">
-            <h1>Eduardo</h1>
-            <div>
-              <span>Online</span>
-              <br />
-              <span>Escribe un mensaje Personal </span>
-              <hr/>
-            </div>
-            <form >
-              <div class="form-group">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="col">
-                      <i>
-                        <img src="assets/img/generic_avatar.png"alt=""class="icon-chat">
-                      </i>
-                      <span class="badge badge-primary">Hola como estas?</span>
-                    </div>
-                    <div class="col text-right">
-                        <i>
-                          <span class="badge badge-primary">Yo bien y tu?</span>
-                          <img src="assets/img/generic_avatar.png"alt=""class="icon-chat">
-                        </i>
-                      </div>
+        </div>
+        <div class="col">
+          <h1>Eduardo</h1>
+          <div>
+            <span>Online</span>
+            <br />
+            <span>Escribe un mensaje Personal </span>
+            <hr />
+          </div>
+          <form>
+            <div class="form-group">
+              <div class="card">
+                <div class="card-body">
+                  <div class="col" *ngFor="let item of conversation">
+                    <i>
+                      <img src="{{item.avatar}}" alt="" class="icon-chat">
+                    </i>
+                    <b>{{getUserNickById(item.sender)}}</b> dice: <span class="badge badge-primary">{{item.text}}</span>
                   </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="whiteBorderGlassBox">
+    <div class="homeHeadContainer">
+      <div class="row">
+        <div class="col-md-auto">
+          <div class="avatarFrameonline">
+            <img src="assets/img/generic_avatar.png" id="homeAvatarPicture">
+          </div>
+        </div>
+        <div class="col">
+          <b>Yo</b>
+          <div>
+            <form>
+              <div class="form-group">
+                <textarea (keyup.enter)="sendMessage()" [(ngModel)]="textMessage" [ngModelOptions]="{standalone: true}"
+                  class="form-control" id="Area-de-Chat" rows="3" placeholder="Escribe menos de 140 caracteres"></textarea>
+                <div class="col text-right">
+                  <i class="img mr-1">
+                    <img src="assets/img/icons/regular_smile.gif" alt="">
+                  </i>
+                  <i class="img mr-1">
+                    <img src="assets/img/icons/tongue_smile.gif" alt="">
+                  </i>
+                  <i class="img mr-1">
+                    <img src="assets/img/icons/angry_smile.gif" alt="">
+                  </i>
+                  <i class="img mr-1" (click)="doZumbido()">
+                    <img src="assets/img/zumbido.png" alt="">
+                  </i>
+                  <button type="button" class="btn btn-primary btn-sm mr-1">
+                    Enviar
+                  </button>
+                  <label class="custom-file-upload mr-1">
+                    <input type="file">
+                    Selecciona Imagen
+                  </label>
                 </div>
               </div>
             </form>
@@ -39,43 +75,5 @@
         </div>
       </div>
     </div>
-    <div class="whiteBorderGlassBox">
-        <div class="homeHeadContainer">
-          <div class="row">
-            <div class="col-md-auto">
-              <div class="avatarFrameonline">
-                  <img src="assets/img/generic_avatar.png"id="homeAvatarPicture">
-              </div>
-            </div>
-            <div class="col">
-              <b>Yo</b>
-              <div>
-                <form >
-                  <div class="form-group">
-                    <textarea class="form-control"id="Area-de-Chat"rows="3"placeholder="Escribe menos de 140 caracteres"></textarea>
-                    <div class="col text-right">
-                      <i class="img mr-1">
-                        <img src="assets/img/icons/regular_smile.gif"alt="">
-                      </i>
-                      <i class="img mr-1">
-                        <img src="assets/img/icons/tongue_smile.gif"alt="">
-                      </i>
-                      <i class="img mr-1">
-                        <img src="assets/img/icons/angry_smile.gif"alt="">
-                      </i>
-                      <button type="button"class="btn btn-primary btn-sm mr-1">
-                        Enviar
-                      </button>
-                      <label class="custom-file-upload mr-1">
-                        <input type="file">
-                        Selecciona Imagen
-                      </label>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
   </div>
+</div>

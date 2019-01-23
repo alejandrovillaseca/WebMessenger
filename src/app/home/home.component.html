@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-md-auto">
           <div class="avatarFrameOnline">
-              <img id="homeAvatarPicture" src="assets/img/generic_avatar.png" alt="Avatar">
+            <img id="homeAvatarPicture" src="assets/img/generic_avatar.png" alt="Avatar">
           </div>
         </div>
         <div class="col-md-auto">
@@ -14,7 +14,9 @@
               Online
             </span>
             <br>
-            <span>< Escribe un mensaje personal ></span>
+            <span>
+              < Escribe un mensaje personal>
+            </span>
             <br>
             <a (click)="logOut()">LogOut</a>
           </div>
@@ -23,28 +25,48 @@
     </div>
   </div>
   <div class="whiteContainerPadded marTop15">
-      <div class="row">
-        <div class="col">
-            <input type="text" class="form-control" placeholder="Buscar Amigo" [(ngModel)]="query" />
-        </div>
-        <div class="col-md-auto">
-          <img src="assets/img/logo_live_add.png" class="icon" alt="">
-        </div>
+    <div class="row">
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Buscar Amigo" [(ngModel)]="query" />
       </div>
-      <hr>
-      <b *ngIf="friends">Amigos {{friends.length}} / {{friends.length}}</b>
-      <div *ngFor="let user of friends | search: query; let i = index" class="displayBlo marTop15">
-        <!--Iconos offline online según status-->
-        <img id="home-online-icon" src="assets/img/logo_live_{{user.status}}.png" alt="{{user.status}}">
-        <span routerLink="/conversation/{{user.uid}}">
-          <b>{{user.nick}}</b> - {{user.subnick || 'No Subnick'}}
-          <small>{{user.email}}</small>
-        </span>
+      <div class="col-md-auto">
+        <img src="assets/img/logo_live_add.png" (click)="open(content)" class="icon" alt="">
       </div>
+    </div>
+    <hr>
+    <b *ngIf="friends">Amigos {{friends.length}} / {{friends.length}}</b>
+    <div *ngFor="let user of friends | search: query; let i = index" class="displayBlo marTop15">
+      <!--Iconos offline online según status-->
+      <img id="home-online-icon" src="assets/img/logo_live_{{user.status}}.png" alt="{{user.status}}">
+      <span routerLink="/conversation/{{user.uid}}">
+        <b>{{user.nick}}</b> - {{user.subnick || 'No Subnick'}}
+        <small>{{user.email}}</small>
+      </span>
+    </div>
+    <button (click)="getDummy()">A ver!!!?</button>
+    <span>{{dummy | json}}</span>
   </div>
 </div>
 
 
 
 
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Agregar amigo</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="">
+      <b>Ingresa el mail de tu amigo</b>
+      <input type="email" class="form-control" placeholder="Email" [(ngModel)]="friendEmail" (keyup.enter)="sendRequest()">
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="sendRequest()">Guardar</button>
+  </div>
+</ng-template>
 
+<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>
