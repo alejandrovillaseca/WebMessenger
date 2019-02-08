@@ -1,0 +1,49 @@
+<div id="profileContainer">
+  <div class="container padTop45">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="avatarFrameOnline" *ngIf="user">
+          <img [src]="croppedImage || user.avatar || 'assets/img/generic_avatar.png'" class="avatarImage img-fluid">
+          <hr>
+          <div>
+            <span>Cambiar Foto</span><br>
+            <label class="custom-fill-upload">
+              <input type="file" (change)="fileChangeEvent($event)">
+              Subir Avatar
+            </label>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="user" class="col-md-9">
+        <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true" [aspectRatio]="1 / 1"
+          [resizeToWidth]="128" format="png" (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()"
+          (loadImageFailed)="loadImageFailed()"></image-cropper>
+
+        <img [src]="croppedImage" />
+        <div>
+          <label fixed>Nick</label>
+          <input [(ngModel)]="user.nick" type="text" class="form-control">
+        </div>
+        <div>
+          <label fixed>Sub-Nick</label>
+          <input [(ngModel)]="user.subnick" type="text" class="form-control">
+        </div>
+        <div>
+          <label fixed>Email</label>
+          <input [(ngModel)]="user.email" type="email" disabled class="form-control">
+        </div>
+        <div>
+          <label fixed>Status</label>
+          <select [(ngModel)]="user.status" name="" id="" class="form-control">
+            <option value="online">Online</option>
+            <option value="away">Ausente</option>
+            <option value="busy">Ocupado</option>
+            <option value="appear_offline">Desconectado</option>
+          </select>
+        </div>
+        <hr>
+        <a (click)="saveSettings()" class="btn btn-primary btn-block">Guardar</a>
+      </div>
+    </div>
+  </div>
+</div>
